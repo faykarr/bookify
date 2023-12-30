@@ -9,6 +9,6 @@ class AnggotaController extends BaseController
 {
     public function index()
     {
-        //
+        return view('anggota/dashboard');
     }
 }
