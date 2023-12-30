@@ -32,6 +32,7 @@
                     MAIN NAVIGATION
                 </li>
 
+                <?php if ($auth->user()->role == 'admin') : ?>
                 <!-- Start Menu Admins -->
                 <li class="nav-item">
                     <a href="#" class="nav-link active">
@@ -107,7 +108,9 @@
                     </ul>
                 </li>
                 <!-- End Menu Admins -->
+                <?php endif; ?>
 
+                <?php if ($auth->user()->role == 'anggota') : ?>
                 <!-- Menu Users -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -136,6 +139,7 @@
                     </a>
                 </li>
                 <!-- End Menu Users -->
+                <?php endif; ?>
 
                 <!-- Users Control -->
                 <li class="nav-header">
