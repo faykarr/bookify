@@ -52,6 +52,14 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
+                        <input type="email" class="form-control <?php if (session('errors.email')): ?>is-invalid<?php endif ?> " placeholder="Email" name="email" value="<?= old('email') ?>">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="text" class="form-control <?php if (session('errors.username')): ?>is-invalid<?php endif ?> " placeholder="Username" name="username" value="<?= old('username') ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">

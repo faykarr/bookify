@@ -100,6 +100,7 @@ class Auth extends \Myth\Auth\Config\Auth
      * @var string[]
      */
     public $validFields = [
+        'email',
         'username',
     ];
 
@@ -184,7 +185,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var string|null Name of the ActivatorInterface class
      */
-    public $requireActivation = '';
+    public $requireActivation = null;
 
     /**
      * --------------------------------------------------------------------
@@ -196,7 +197,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var string|null Name of the ResetterInterface class
      */
-    public $activeResetter = '';
+    public $activeResetter = null;
 
     /**
      * --------------------------------------------------------------------
@@ -211,7 +212,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var bool
      */
-    public $allowRemembering = true;
+    public $allowRemembering = false;
 
     /**
      * --------------------------------------------------------------------
