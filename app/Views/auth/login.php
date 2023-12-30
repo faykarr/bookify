@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/dist/css/adminlte.min.css">
+    <!-- icheckBootstrap -->
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Favicon -->
     <link rel="icon" href="<?= base_url() ?>/assets/dist/img/bookify-logo.jpg" type="image/x-icon" />
 </head>
@@ -60,7 +62,8 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="remember" name="remember" <?php if (old('remember')) : ?> checked <?php endif ?>>
+                                <input type="checkbox" id="remember" name="remember" <?php if (old('remember')): ?>
+                                        checked <?php endif ?>>
                                 <label for="remember">
                                     Remember Me
                                 </label>
