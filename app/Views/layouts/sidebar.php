@@ -92,14 +92,6 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <div class="ml-4">
-                                    <i class="fas fa-swatchbook nav-icon"></i>
-                                    <p>Katalog Buku</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <div class="ml-4">
                                     <i class="fas fa-address-book nav-icon"></i>
                                     <p>Peminjaman</p>
                                 </div>

@@ -14,7 +14,7 @@ class CreateAuthTables extends Migration
             'email'            => ['type' => 'varchar', 'constraint' => 255],
             'username'         => ['type' => 'varchar', 'constraint' => 30, 'null' => true],
             'password_hash'    => ['type' => 'varchar', 'constraint' => 255],
-            'role'             => ['type' => 'enum', 'constraint' => ['admin', 'user'], 'default' => 'user'],
+            'role'             => ['type' => 'enum', 'constraint' => ['admin', 'anggota'], 'default' => 'anggota'],
             'reset_hash'       => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'reset_at'         => ['type' => 'datetime', 'null' => true],
             'reset_expires'    => ['type' => 'datetime', 'null' => true],
