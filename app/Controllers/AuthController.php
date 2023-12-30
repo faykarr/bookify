@@ -96,7 +96,14 @@ class AuthController extends Controller
         $redirectURL = session('redirect_url') ?? site_url('/');
         unset($_SESSION['redirect_url']);
 
-        return redirect()->to($redirectURL)->withCookies()->with('message', lang('Auth.loginSuccess'));
+        $flashData = [
+            'message' => lang('Auth.loginSuccess'),
+            'roleUser'    => $this->auth->user()->role,
+        ];
+        session()->set('roleUser',$this->auth->user()->role);
+        // dd(session()->get('data'));
+        // dd($flashData);
+        return redirect()->to($redirectURL)->withCookies()->with('data', $flashData);
     }
 
     /**

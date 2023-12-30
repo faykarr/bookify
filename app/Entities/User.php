@@ -260,19 +260,7 @@ class User extends \Myth\Auth\Entities\User
      */
     public function getRoles()
     {
-        if (empty($this->id)) {
-            throw new RuntimeException('Users must be created before getting roles.');
-        }
-
-        if (empty($this->roles)) {
-            $groups = model(GroupModel::class)->getGroupsForUser($this->id);
-
-            foreach ($groups as $group) {
-                $this->roles[$group['group_id']] = strtolower($group['name']);
-            }
-        }
-
-        return $this->roles;
+        return $this->attributes['role'];
     }
 
     /**

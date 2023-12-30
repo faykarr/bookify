@@ -5,4 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'AnggotaController::index');
+// check session with key role
+
+if (session()->get('roleUser') == 'user') {
+    $routes->get('/', 'AnggotaController::index');
+} elseif (session()->get('roleUser') == 'admin') {
+    $routes->get('/', 'AdminController::index');
+} else {
+    $routes->get('/', 'AuthController::login');
+}
