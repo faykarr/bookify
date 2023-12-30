@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 // check session with key role
 
-if (session()->get('roleUser') == 'user') {
+if (session()->get('roleUser') == 'anggota') {
     $routes->get('/', 'AnggotaController::index');
 } elseif (session()->get('roleUser') == 'admin') {
     $routes->get('/', 'AdminController::index');

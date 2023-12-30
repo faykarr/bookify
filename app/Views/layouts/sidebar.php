@@ -1,3 +1,4 @@
+<?php $auth = service('authentication'); ?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" aria-label="">
     <!-- Brand Logo -->
@@ -16,8 +17,8 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">
-                    Alexander | <strong>Admin</strong>
+                <a href="<?= base_url() ?>" class="d-block">
+                <?= strtoupper($auth->user()->username) ?>  | <strong><?= strtoupper($auth->user()->role) ?></strong>
                 </a>
             </div>
         </div>
@@ -141,6 +142,14 @@
                     USER ACCOUNT
                 </li>
 
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="<?= url_to('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
