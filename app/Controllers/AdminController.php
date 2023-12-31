@@ -150,4 +150,13 @@ class AdminController extends BaseController
         $this->anggotaModel->insertAnggota($data);
         return redirect()->to('/anggota')->with('success', 'Data Anggota berhasil ditambahkan.');
     }
+
+    public function deleteAnggota($id)
+    {
+        // Unlink the image
+        $oldImage = $this->anggotaModel->find($id)['foto'];
+        unlink('uploads/anggota/' . $oldImage);
+        $this->anggotaModel->delete($id);
+        return $this->response->setJSON(['success' => true]);
+    }
 }

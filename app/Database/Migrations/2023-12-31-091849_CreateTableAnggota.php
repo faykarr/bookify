@@ -50,6 +50,12 @@ class CreateTableAnggota extends Migration
         $this->forge->addUniqueKey('nim');
         $this->forge->addForeignKey('id_user', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('master_anggota');
+        // Create trigger untuk menghapus data user ketika sebelum anggota dihapus
+        $this->db->query("
+            CREATE TRIGGER `delete_user_before_anggota` BEFORE DELETE ON `master_anggota` FOR EACH ROW BEGIN
+                DELETE FROM users WHERE id = OLD.id_user;
+            END
+        ");
     }
 
     public function down()

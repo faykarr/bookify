@@ -75,7 +75,7 @@
                                 </td>
                                 <td class="text-center">
                                     <img src="<?= base_url('uploads/anggota/' . $value['foto']) ?>" alt="Foto Profil"
-                                        class="rounded-circle shadow border border-white" width="52">
+                                        class="rounded-lg shadow border border-white" width="52">
                                 </td>
                                 <!-- Action buttons -->
                                 <td class="text-center">
