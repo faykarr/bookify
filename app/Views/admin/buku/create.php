@@ -114,7 +114,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="<?= url_to('buku') ?>" class="btn btn-secondary">Cancel</button>
+                    <a href="<?= url_to('buku') ?>" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Tambah Data Buku" class="btn btn-success float-right">
                 </div>
             </div>

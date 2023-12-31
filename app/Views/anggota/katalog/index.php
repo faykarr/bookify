@@ -30,23 +30,33 @@
                         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                             <div class="card bg-light d-flex flex-fill">
                                 <div class="card-header text-muted border-bottom-0">
-                                    Kode Buku : <?= $value['id_buku'] ?>
+                                    Kode Buku :
+                                    <?= $value['id_buku'] ?>
                                 </div>
                                 <div class="card-body pt-0">
                                     <div class="row">
-                                        <div class="col-7">
-                                            <h2 class="lead"><b><?= $value['judul_buku'] ?></b></h2>
-                                            <p class="text-muted text-sm"><b>About : </b> <?= $value['deskripsi'] ?></p>
+                                        <div class="col-6">
+                                            <h2 class="lead"><b>
+                                                    <?= $value['judul_buku'] ?>
+                                                </b></h2>
+                                            <p class="text-muted text-sm text-justify"><b>About : </b>
+                                                <?= $value['deskripsi'] ?>
+                                            </p>
                                             <ul class="ml-4 mb-0 fa-ul text-muted">
                                                 <li class="small mb-2"><span class="fa-li"><i
-                                                            class="fas fa-lg fa-user"></i></span><strong>Pengarang : <?= $value['pengarang'] ?></strong></li>
+                                                            class="fas fa-lg fa-user"></i></span><strong>Pengarang :
+                                                        <?= $value['pengarang'] ?>
+                                                    </strong></li>
                                                 <li class="small"><span class="fa-li"><i
-                                                            class="fas fa-lg fa-building"></i></span> Posisi Rak : <?= $value['rak'] ?></li>
+                                                            class="fas fa-lg fa-building"></i></span> Posisi Rak :
+                                                    <?= $value['rak'] ?>
+                                                </li>
                                             </ul>
                                         </div>
-                                        <div class="col-5 text-center">
+                                        <div class="col-6 text-center">
                                             <img src="<?= base_url() ?>uploads/<?= $value['gambar'] ?>" alt="user-avatar"
-                                                class="rounded-lg border border-secondary shadow" height="224px" style="background-size: cover;">
+                                                class="rounded-lg border border-secondary shadow" height="224px"
+                                                style="background-size: cover;">
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +65,8 @@
                                         <a href="#" class="btn btn-sm bg-teal">
                                             <i class="fas fa-book-reader"></i> Pinjam Buku
                                         </a>
-                                        <a href="<?= base_url() ?>katalog/<?= $value['id_buku'] ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?= base_url() ?>katalog/<?= $value['id_buku'] ?>"
+                                            class="btn btn-sm btn-primary">
                                             <i class="fas fa-eye"></i> Lihat Buku
                                         </a>
                                     </div>
@@ -65,22 +76,15 @@
                     <?php endforeach; ?>
                 </div>
             </div>
-            <!-- /.card-body -->
             <div class="card-footer">
-                <nav aria-label="Contacts Page Navigation">
-                    <ul class="pagination justify-content-center m-0">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    </ul>
-                </nav>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <!-- Display Pagination Links -->
+                        <?= $pager->links('default', 'bootstrap') ?>
+                    </div>
+                </div>
             </div>
-            <!-- /.card-footer -->
+
         </div>
         <!-- /.card -->
 
