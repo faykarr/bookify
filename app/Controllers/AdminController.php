@@ -159,4 +159,14 @@ class AdminController extends BaseController
         $this->anggotaModel->delete($id);
         return $this->response->setJSON(['success' => true]);
     }
+
+    public function editAnggota($id)
+    {
+        $id_user = $this->anggotaModel->find($id)['id_user'];
+        $data = [
+            'model' => $this->anggotaModel->find($id),
+            'user' => $this->userModel->find($id_user)
+        ];
+        return view('admin/anggota/edit', $data);
+    }
 }
