@@ -62,39 +62,33 @@
                                     <?= $key + 1 ?>
                                 </td>
                                 <td>
-                                    <?= $value['id_buku'] ?>
+                                    <?= $value['id_anggota'] ?>
                                 </td>
                                 <td>
-                                    <?= $value['isbn'] ?>
+                                    <?= $value['nim'] ?>
                                 </td>
                                 <td>
-                                    <?= $value['judul_buku'] ?>
+                                    <?= $value['nama'] ?>
                                 </td>
                                 <td>
-                                    <?= $value['pengarang'] ?>
+                                    Skip Dulu
                                 </td>
                                 <td class="text-center">
-                                    <img src="<?= base_url('uploads/' . $value['gambar']) ?>" alt="Sampul Buku"
-                                        class="rounded" width="50">
-                                </td>
-                                <td class="text-center">
-                                    <?= $value['stok_buku'] ?>
-                                </td>
-                                <td>
-                                    <?= $value['rak'] ?>
+                                    <img src="<?= base_url('uploads/anggota/' . $value['foto']) ?>" alt="Foto Profil"
+                                        class="rounded-circle shadow border border-white" width="52">
                                 </td>
                                 <!-- Action buttons -->
                                 <td class="text-center">
                                     <!-- View details book-->
                                     <div class="btn-group">
-                                        <a href="<?= base_url() . 'buku/' . $value['id_buku'] ?>" class="btn btn-primary btn-sm">
+                                        <a href="<?= base_url() . 'anggota/' . $value['id_anggota'] ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= base_url() . 'buku/edit/' . $value['id_buku'] ?>" class="btn btn-warning btn-sm text-white">
+                                        <a href="<?= base_url() . 'anggota/edit/' . $value['id_anggota'] ?>" class="btn btn-warning btn-sm text-white">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <!-- Show confirm delete button with sweetalert, class & jquery -->
-                                        <a href="#" class="btn btn-danger btn-sm delete" data-url="<?= base_url() . 'buku/delete/' . $value['id_buku'] ?>">
+                                        <a href="#" class="btn btn-danger btn-sm delete" data-url="<?= base_url() . 'anggota/delete/' . $value['id_anggota'] ?>">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>

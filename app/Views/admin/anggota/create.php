@@ -75,8 +75,8 @@
                                 <label for="gambar">Foto Profil</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                        <label class="custom-file-label" for="gambar">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="foto" name="foto">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>

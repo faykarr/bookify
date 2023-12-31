@@ -12,7 +12,7 @@ class CreateTableAnggota extends Migration
         $this->forge->addField([
             'id_anggota' => [
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 4,
                 'unsigned' => true, // agar nilainya positif
                 'zerofill' => true, // agar nilainya positif
                 'auto_increment' => true,

@@ -53,3 +53,5 @@ Events::on('pre_system', static function () {
         }
     }
 });
+
+Events::on('baruAnggota', 'App\Listeners\TambahUserListener::handle');
