@@ -14,6 +14,9 @@ class AnggotaController extends BaseController
 
     public function katalog()
     {
-        return view('anggota/katalog/index');
+        $data = [
+            'buku' => $this->bukuModel->findAll()
+        ];
+        return view('anggota/katalog/index', $data);
     }
 }

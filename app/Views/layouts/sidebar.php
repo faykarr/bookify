@@ -23,7 +23,7 @@ $uri = service('uri');
             </div>
             <div class="info">
                 <a href="<?= base_url() ?>" class="d-block">
-                <?= strtoupper($auth->user()->username) ?>  | <strong><?= strtoupper($auth->user()->role) ?></strong>
+                <?= strtoupper($auth->user()->username) ?></strong>
                 </a>
             </div>
         </div>
@@ -111,7 +111,7 @@ $uri = service('uri');
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= url_to('katalog') ?>" class="nav-link <?= ($uri->getSegment(1) === 'katalog') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-swatchbook"></i>
                         <p>
                             Katalog Buku
@@ -132,7 +132,7 @@ $uri = service('uri');
 
                 <!-- Users Control -->
                 <li class="nav-header">
-                    USER ACCOUNT
+                    USER ACCOUNT - <?= strtoupper($auth->user()->role) ?>
                 </li>
 
                 <li class="nav-item">
