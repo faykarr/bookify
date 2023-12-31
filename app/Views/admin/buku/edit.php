@@ -22,7 +22,7 @@
 
     <!-- Main content -->
     <section class="content pb-3">
-        <form action="<?= url_to('buku/store') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= url_to('buku/update') ?>" method="post" enctype="multipart/form-data">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-primary">
@@ -48,28 +48,32 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="isbn">ISBN</label>
-                                        <input type="text" id="isbn" name="isbn" class="form-control" value="<?= $model['isbn'] ?>">
+                                        <input type="text" id="isbn" name="isbn" class="form-control"
+                                            value="<?= $model['isbn'] ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="pengarang">Pengarang</label>
-                                <input type="text" id="pengarang" name="pengarang" class="form-control" value="<?= $model['pengarang'] ?>">
+                                <input type="text" id="pengarang" name="pengarang" class="form-control"
+                                    value="<?= $model['pengarang'] ?>">
                             </div>
 
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="penerbit">Penerbit</label>
-                                        <input type="text" id="penerbit" name="penerbit" class="form-control" value="<?= $model['penerbit'] ?>">
+                                        <input type="text" id="penerbit" name="penerbit" class="form-control"
+                                            value="<?= $model['penerbit'] ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="tahun_terbit">Tahun Terbit</label>
-                                        <input type="number" min="1900" max="2099" step="1" value="<?= $model['tahun_terbit'] ?>"
-                                            class="form-control" name="tahun_terbit" />
+                                        <input type="number" min="1900" max="2099" step="1"
+                                            value="<?= $model['tahun_terbit'] ?>" class="form-control"
+                                            name="tahun_terbit" />
                                     </div>
                                 </div>
                             </div>
@@ -78,21 +82,23 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="rak">Posisi Rak</label>
-                                        <input type="text" id="rak" name="rak" class="form-control" value="<?= $model['rak'] ?>">
+                                        <input type="text" id="rak" name="rak" class="form-control"
+                                            value="<?= $model['rak'] ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="stok_buku">Stok Buku</label>
                                         <input type="number" id="stok_buku" name="stok_buku" min="1" max="1000" step="1"
-                                            value="1" class="form-control" value="<?= $model['stok_buku'] ?>">
+                                            class="form-control" value="<?= $model['stok_buku'] ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi Buku</label>
-                                <textarea name="deskripsi" id="deskripsi" rows="4" class="form-control"><?= $model['deskripsi'] ?></textarea>
+                                <textarea name="deskripsi" id="deskripsi" rows="4"
+                                    class="form-control"><?= $model['deskripsi'] ?></textarea>
                             </div>
 
                             <div class="row justify-content-between">
@@ -111,7 +117,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="stok_buku">ID Buku</label>
-                                        <input type="text" id="stok_buku" class="form-control" value="<?= $model['id_buku'] ?>" disabled readonly>
+                                        <input type="text" id="stok_buku" class="form-control"
+                                            value="<?= $model['id_buku'] ?>" disabled readonly>
                                         <input type="hidden" name="id_buku" value="<?= $model['id_buku'] ?>">
                                     </div>
                                 </div>

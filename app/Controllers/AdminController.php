@@ -64,4 +64,42 @@ class AdminController extends BaseController
         ];
         return view('admin/buku/edit', $data);
     }
+
+    public function updateBuku() {
+        $id_buku = $this->request->getPost('id_buku');
+        // Check if the user uploaded a new file & unlink the old one & delete the old one
+        if ($this->request->getFile('gambar')->getName() != '') {
+            $file = $this->request->getFile('gambar');
+            $name = $file->getRandomName();
+            $file->move('uploads', $name);
+            $data = [
+                'judul_buku' => $this->request->getPost('judul_buku'),
+                'isbn' => $this->request->getPost('isbn'),
+                'pengarang' => $this->request->getPost('pengarang'),
+                'penerbit' => $this->request->getPost('penerbit'),
+                'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+                'stok_buku' => $this->request->getPost('stok_buku'),
+                'deskripsi' => $this->request->getPost('deskripsi'),
+                'rak' => $this->request->getPost('rak'),
+                'gambar' => $name
+            ];
+            $oldImage = $this->bukuModel->find($id_buku)['gambar'];
+            unlink('uploads/' . $oldImage);
+            $this->bukuModel->update($id_buku, $data);
+            return redirect()->to('/buku')->with('success', 'Data Buku berhasil diubah.');
+        } else {
+            $data = [
+                'judul_buku' => $this->request->getPost('judul_buku'),
+                'isbn' => $this->request->getPost('isbn'),
+                'pengarang' => $this->request->getPost('pengarang'),
+                'penerbit' => $this->request->getPost('penerbit'),
+                'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+                'stok_buku' => $this->request->getPost('stok_buku'),
+                'deskripsi' => $this->request->getPost('deskripsi'),
+                'rak' => $this->request->getPost('rak')
+            ];
+            $this->bukuModel->update($id_buku, $data);
+            return redirect()->to('/buku')->with('success', 'Data Buku berhasil diubah.');
+        }
+    }
 }
