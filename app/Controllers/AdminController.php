@@ -126,4 +126,9 @@ class AdminController extends BaseController
     {
         return view('admin/anggota/create');
     }
+
+    public function storeAnggota()
+    {
+        dd($this->request->getPost());
+    }
 }

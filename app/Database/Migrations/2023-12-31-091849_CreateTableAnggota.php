@@ -20,6 +20,7 @@ class CreateTableAnggota extends Migration
             'nim' => [
                 'type' => 'VARCHAR',
                 'constraint' => 15,
+                'null' => true,
             ],
             'nama' => [
                 'type' => 'VARCHAR',
@@ -27,14 +28,17 @@ class CreateTableAnggota extends Migration
             ],
             'alamat' => [
                 'type' => 'TEXT',
+                'null' => true,
             ],
             'no_telp' => [
                 'type' => 'VARCHAR',
                 'constraint' => 15,
+                'null' => true,
             ],
             'foto' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
+                'null' => true,
             ],
             'id_user' => [
                 'type' => 'INT',
