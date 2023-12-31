@@ -48,6 +48,12 @@ class AdminController extends BaseController
         
         
         $this->bukuModel->insert($data);
-        return redirect()->to('/buku');
+        return redirect()->to('/buku')->with('success', 'Data Buku berhasil ditambahkan.');
+    }
+
+    public function deleteBuku($id)
+    {
+        $this->bukuModel->delete($id);
+        return $this->response->setJSON(['success' => true]);
     }
 }

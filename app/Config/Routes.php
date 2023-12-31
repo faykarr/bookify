@@ -7,10 +7,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->get('/', 'AdminController::index');
-    $routes->get('/dashboard', 'AdminController::index');
-    $routes->get('/buku', 'AdminController::indexBuku');
-    $routes->get('/buku/create', 'AdminController::createBuku');
-    $routes->post('/buku/store', 'AdminController::storeBuku');
+    $routes->get('dashboard', 'AdminController::index');
+    $routes->get('buku', 'AdminController::indexBuku');
+    $routes->get('buku/create', 'AdminController::createBuku');
+    $routes->post('buku/store', 'AdminController::storeBuku');
+    $routes->get('buku/delete/(:segment)', 'AdminController::deleteBuku/$1');
 });
 
 $routes->get('/', 'AnggotaController::index');

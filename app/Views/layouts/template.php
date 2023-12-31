@@ -25,6 +25,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet"
             href="<?= base_url() ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+        <!-- SweetAlert2 -->
+        <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <?php endif; ?>
 
     <!-- Favicon -->
@@ -96,6 +98,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="<?= base_url() ?>/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="<?= base_url() ?>/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
     <?php endif; ?>
 
     <!-- AdminLTE App -->
@@ -112,6 +116,58 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     "autoWidth": false,
                     "buttons": ["excel", "pdf", "print"]
                 }).buttons().container().appendTo('#master-buku_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+
+        <!-- Script SweetAlert2 -->
+        <script>
+            $(document).ready(function () {
+                // Show success alert after add data
+                <?php if (session()->getFlashdata('success')): ?>
+                    Swal.fire(
+                        'Berhasil!',
+                        '<?= session()->getFlashdata('success') ?>',
+                        'success'
+                    );
+                <?php endif; ?>
+
+                $('.delete').click(function (e) {
+                    e.preventDefault();
+                    var url = $(this).data('url');
+                    Swal.fire({
+                        title: 'Apakah anda yakin?',
+                        text: "Data yang dihapus tidak dapat dikembalikan!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#dc3545',
+                        cancelButtonColor: '#6c757d',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: url,
+                                type: 'GET',
+                                error: function () {
+                                    Swal.fire(
+                                        'Gagal!',
+                                        'Data gagal dihapus.',
+                                        'error'
+                                    )
+                                },
+                                success: function (data) {
+                                    Swal.fire(
+                                        'Berhasil!',
+                                        'Data berhasil dihapus.',
+                                        'success'
+                                    ).then((result) => {
+                                        location.reload();
+                                    })
+                                }
+                            });
+                        }
+                    })
+                });
             });
         </script>
     <?php endif; ?>
