@@ -48,8 +48,8 @@ $uri = service('uri');
                     </a>
                 </li>
 
-                <li class="nav-item <?= ($uri->getSegment(1) === 'buku') ? 'menu-is-opening menu-open' : '' ?>">
-                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'buku') ? 'active' : '' ?>">
+                <li class="nav-item <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'menu-is-opening menu-open' : '' ?>">
+                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Data Master
@@ -58,18 +58,10 @@ $uri = service('uri');
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= url_to('anggota') ?>" class="nav-link <?= ($uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
                                 <div class="ml-4">
                                     <i class="fas fa-users nav-icon"></i>
                                     <p>Master Anggota</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <div class="ml-4">
-                                    <i class="fas fa-users-cog nav-icon"></i>
-                                    <p>Master Admin</p>
                                 </div>
                             </a>
                         </li>

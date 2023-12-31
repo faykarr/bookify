@@ -113,4 +113,17 @@ class AdminController extends BaseController
         ];
         return view('admin/buku/show', $data);
     }
+
+    public function indexAnggota()
+    {
+        $data = [
+            'model' => $this->anggotaModel->findAll()
+        ];
+        return view('admin/anggota/index', $data);
+    }
+
+    public function createAnggota()
+    {
+        return view('admin/anggota/create');
+    }
 }

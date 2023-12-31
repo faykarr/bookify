@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\AnggotaModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -55,6 +56,7 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
         // Load BukuModel
         $this->bukuModel = new BukuModel();
+        $this->anggotaModel = new AnggotaModel();
 
         // E.g.: $this->session = \Config\Services::session();
     }

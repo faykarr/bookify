@@ -35,16 +35,8 @@
                     <?= csrf_field() ?>
 
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control <?php if (session('errors.firstname')): ?>is-invalid<?php endif ?> " placeholder="First name" name="firstname" value="<?= old('firstname') ?>" autofocus>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-id-card-alt"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
                         <input type="text"
-                            class="form-control <?php if (session('errors.lastname')): ?>is-invalid<?php endif ?>" placeholder="Last name" name="lastname" value="<?= old('lastname') ?>">
+                            class="form-control <?php if (session('errors.fullname')): ?>is-invalid<?php endif ?>" placeholder="Full name" name="fullname" value="<?= old('fullname') ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-id-card-alt"></span>
