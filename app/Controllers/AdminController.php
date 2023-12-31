@@ -210,4 +210,14 @@ class AdminController extends BaseController
             return redirect()->to('/anggota')->with('success', 'Data Anggota berhasil diubah.');
         }
     }
+
+    public function detailAnggota($id)
+    {
+        $id_user = $this->anggotaModel->find($id)['id_user'];
+        $data = [
+            'model' => $this->anggotaModel->find($id),
+            'user' => $this->userModel->find($id_user)
+        ];
+        return view('admin/anggota/show', $data);
+    }
 }
