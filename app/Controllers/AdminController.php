@@ -19,4 +19,9 @@ class AdminController extends BaseController
         ];
         return view('admin/buku/index', $data);
     }
+
+    public function createBuku()
+    {
+        return view('admin/buku/create');
+    }
 }

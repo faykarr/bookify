@@ -31,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" href="<?= base_url() ?>/assets/dist/img/bookify-logo.jpg" type="image/x-icon" />
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -95,6 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="<?= base_url() ?>/assets/plugins/pdfmake/vfs_fonts.js"></script>
         <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <?php endif; ?>
 
     <!-- AdminLTE App -->
@@ -104,6 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Page specific script -->
         <script>
             $(function () {
+                bsCustomFileInput.init();
                 $("#master-buku").DataTable({
                     "responsive": true,
                     "lengthChange": false,

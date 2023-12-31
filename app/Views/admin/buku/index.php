@@ -29,7 +29,7 @@
 
                 <div class="card-tools">
                     <!-- Add data master buku button -->
-                    <a href="#" class="btn btn-primary btn-sm">
+                    <a href="<?= url_to('buku/create') ?>" class="btn btn-primary btn-sm">
                         <i class="fas fa-plus"></i> Tambah Data
                     </a>
 
