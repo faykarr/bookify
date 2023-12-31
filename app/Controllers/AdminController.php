@@ -54,6 +54,9 @@ class AdminController extends BaseController
     public function deleteBuku($id)
     {
         $this->bukuModel->delete($id);
+        // Unlink the image
+        $oldImage = $this->bukuModel->find($id)['gambar'];
+        unlink('uploads/' . $oldImage);
         return $this->response->setJSON(['success' => true]);
     }
 
