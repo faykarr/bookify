@@ -20,7 +20,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content pb-2">
 
         <!-- Default box -->
         <div class="card">
