@@ -102,4 +102,12 @@ class AdminController extends BaseController
             return redirect()->to('/buku')->with('success', 'Data Buku berhasil diubah.');
         }
     }
+
+    public function detailBuku($id)
+    {
+        $data = [
+            'model' => $this->bukuModel->find($id)
+        ];
+        return view('admin/buku/show', $data);
+    }
 }
