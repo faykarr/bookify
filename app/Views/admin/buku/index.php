@@ -51,7 +51,7 @@
                             <th>ISBN</th>
                             <th>Judul Buku</th>
                             <th>Pengarang</th>
-                            <th>Penerbit</th>
+                            <th>Sampul Buku</th>
                             <th>Stok Buku</th>
                             <th>Rak</th>
                             <th>Action</th>
@@ -75,8 +75,9 @@
                                 <td>
                                     <?= $value['pengarang'] ?>
                                 </td>
-                                <td>
-                                    <?= $value['penerbit'] ?>
+                                <td class="text-center">
+                                    <img src="<?= base_url('uploads/' . $value['gambar']) ?>" alt="Sampul Buku"
+                                        class="rounded" width="50">
                                 </td>
                                 <td class="text-center">
                                     <?= $value['stok_buku'] ?>

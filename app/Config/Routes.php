@@ -10,6 +10,7 @@ $routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->get('/dashboard', 'AdminController::index');
     $routes->get('/buku', 'AdminController::indexBuku');
     $routes->get('/buku/create', 'AdminController::createBuku');
+    $routes->post('/buku/store', 'AdminController::storeBuku');
 });
 
 $routes->get('/', 'AnggotaController::index');

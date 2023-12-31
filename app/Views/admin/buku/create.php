@@ -22,20 +22,20 @@
 
     <!-- Main content -->
     <section class="content pb-3">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Master Buku</h3>
+        <form action="<?= url_to('buku/store') ?>" method="post" enctype="multipart/form-data">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Master Buku</h3>
 
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <form action="<?= url_to('buku/store') ?>" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
                             <?= csrf_field() ?>
                             <div class="row">
                                 <div class="col-md-7">
@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <label for="tahun_terbit">Tahun Terbit</label>
                                         <input type="number" min="1900" max="2099" step="1" value="2023"
-                                            class="form-control" />
+                                            class="form-control" name="tahun_terbit" />
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="stok_buku">Stok Buku</label>
-                                        <input type="number" id="stok_buku" name="stok_buku" min="1" max="1000" step="1" value="1" class="form-control">
+                                        <input type="number" id="stok_buku" name="stok_buku" min="1" max="1000" step="1"
+                                            value="1" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -105,19 +106,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Tambah Data Buku" class="btn btn-success float-right">
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" value="Tambah Data Buku" class="btn btn-success float-right">
+                </div>
             </div>
-        </div>
+        </form>
     </section>
     <!-- /.content -->
 </div>

@@ -24,4 +24,30 @@ class AdminController extends BaseController
     {
         return view('admin/buku/create');
     }
+
+    public function storeBuku()
+    {
+        // Get the file & randomize the name
+        $file = $this->request->getFile('gambar');
+        $name = $file->getRandomName();
+
+        // Move the file to the public/uploads folder
+        $file->move('uploads', $name);
+
+        $data = [
+            'judul_buku' => $this->request->getPost('judul_buku'),
+            'isbn' => $this->request->getPost('isbn'),
+            'pengarang' => $this->request->getPost('pengarang'),
+            'penerbit' => $this->request->getPost('penerbit'),
+            'tahun_terbit' => $this->request->getPost('tahun_terbit'),
+            'stok_buku' => $this->request->getPost('stok_buku'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'rak' => $this->request->getPost('rak'),
+            'gambar' => $name
+        ];
+        
+        
+        $this->bukuModel->insert($data);
+        return redirect()->to('/buku');
+    }
 }
