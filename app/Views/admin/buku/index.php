@@ -77,7 +77,7 @@
                                 </td>
                                 <td class="text-center">
                                     <img src="<?= base_url('uploads/' . $value['gambar']) ?>" alt="Sampul Buku"
-                                        class="rounded" width="50">
+                                        class="rounded shadow border border-secondary" width="50">
                                 </td>
                                 <td class="text-center">
                                     <?= $value['stok_buku'] ?>
