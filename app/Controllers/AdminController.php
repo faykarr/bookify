@@ -129,6 +129,25 @@ class AdminController extends BaseController
 
     public function storeAnggota()
     {
-        dd($this->request->getPost());
+        // Get the file & randomize the name
+        $file = $this->request->getFile('foto');
+        $name = $file->getRandomName();
+
+        // Move the file to the public/uploads folder
+        $file->move('uploads/anggota', $name);
+
+        $data = [
+            'nim' => $this->request->getPost('nim'),
+            'nama' => $this->request->getPost('nama'),
+            'alamat' => $this->request->getPost('alamat'),
+            'no_telp' => $this->request->getPost('no_telp'),
+            'foto' => $name,
+            'email' => $this->request->getPost('email'),
+            'username' => strtolower(str_replace(' ', '', $this->request->getPost('nama'))),
+            'password' => 'anggota123',
+        ];
+        
+        $this->anggotaModel->insertAnggota($data);
+        return redirect()->to('/anggota')->with('success', 'Data Anggota berhasil ditambahkan.');
     }
 }

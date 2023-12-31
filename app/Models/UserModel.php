@@ -121,4 +121,14 @@ class UserModel extends Model
             'password' => bin2hex(random_bytes(16)),
         ]);
     }
+
+    public function getLastUserId()
+    {
+        // Adjust the query based on your database system if needed
+        $query = $this->db->query('SELECT LAST_INSERT_ID() as last_id');
+        $row = $query->getRow();
+
+        // Return the last inserted ID
+        return $row->last_id;
+    }
 }
