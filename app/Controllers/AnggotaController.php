@@ -11,4 +11,9 @@ class AnggotaController extends BaseController
     {
         return view('anggota/dashboard');
     }
+
+    public function katalog()
+    {
+        return view('anggota/katalog/index');
+    }
 }

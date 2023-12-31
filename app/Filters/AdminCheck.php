@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class RoleCheck implements FilterInterface
+class AdminCheck implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.

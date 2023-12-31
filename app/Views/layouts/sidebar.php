@@ -102,7 +102,7 @@ $uri = service('uri');
                 <?php if ($auth->user()->role == 'anggota') : ?>
                 <!-- Menu Users -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= url_to('/') ?>" class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Dashboard

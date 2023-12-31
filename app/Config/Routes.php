@@ -5,9 +5,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
-    $routes->get('/', 'AdminController::index');
-    $routes->get('dashboard', 'AdminController::index');
+
+$routes->get('/', 'DashboardController::index');
+$routes->get('dashboard', 'DashboardController::index');
+
+$routes->group('/', ['filter' => 'admincheck'], function ($routes) {
     $routes->get('buku', 'AdminController::indexBuku');
     $routes->get('buku/create', 'AdminController::createBuku');
     $routes->post('buku/store', 'AdminController::storeBuku');
@@ -24,5 +26,6 @@ $routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->get('anggota/(:segment)', 'AdminController::detailAnggota/$1');
 });
 
-$routes->get('/', 'AnggotaController::index');
-$routes->get('/dashboard', 'AnggotaController::index');
+$routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {
+    $routes->get('katalog', 'AnggotaController::katalog');
+});

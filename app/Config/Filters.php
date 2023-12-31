@@ -2,7 +2,8 @@
 
 namespace Config;
 
-use App\Filters\RoleCheck;
+use App\Filters\AdminCheck;
+use App\Filters\AnggotaCheck;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -31,7 +32,8 @@ class Filters extends BaseConfig
         'login'      => LoginFilter::class,
         'role'       => RoleFilter::class,
         'permission' => PermissionFilter::class,
-        'rolecheck'  => RoleCheck::class,
+        'admincheck'  => AdminCheck::class,
+        'anggotacheck'  => AnggotaCheck::class,
     ];
 
     /**
