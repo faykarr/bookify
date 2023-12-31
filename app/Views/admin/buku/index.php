@@ -92,7 +92,7 @@
                                         <a href="#" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="#" class="btn btn-warning btn-sm text-white">
+                                        <a href="<?= base_url() . 'buku/edit/' . $value['id_buku'] ?>" class="btn btn-warning btn-sm text-white">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <!-- Show confirm delete button with sweetalert, class & jquery -->

@@ -12,6 +12,7 @@ $routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->get('buku/create', 'AdminController::createBuku');
     $routes->post('buku/store', 'AdminController::storeBuku');
     $routes->get('buku/delete/(:segment)', 'AdminController::deleteBuku/$1');
+    $routes->get('buku/edit/(:segment)', 'AdminController::editBuku/$1');
 });
 
 $routes->get('/', 'AnggotaController::index');

@@ -56,4 +56,12 @@ class AdminController extends BaseController
         $this->bukuModel->delete($id);
         return $this->response->setJSON(['success' => true]);
     }
+
+    public function editBuku($id)
+    {
+        $data = [
+            'model' => $this->bukuModel->find($id)
+        ];
+        return view('admin/buku/edit', $data);
+    }
 }
