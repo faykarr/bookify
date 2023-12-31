@@ -19,4 +19,12 @@ class AnggotaController extends BaseController
         ];
         return view('anggota/katalog/index', $data);
     }
+
+    public function showBuku($id)
+    {
+        $data = [
+            'model' => $this->bukuModel->find($id)
+        ];
+        return view('anggota/katalog/show', $data);
+    }
 }

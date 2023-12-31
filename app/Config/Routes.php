@@ -28,4 +28,5 @@ $routes->group('/', ['filter' => 'admincheck'], function ($routes) {
 
 $routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {
     $routes->get('katalog', 'AnggotaController::katalog');
+    $routes->get('katalog/(:segment)', 'AnggotaController::showBuku/$1');
 });
