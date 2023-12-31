@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\RoleCheck;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -30,6 +31,7 @@ class Filters extends BaseConfig
         'login'      => LoginFilter::class,
         'role'       => RoleFilter::class,
         'permission' => PermissionFilter::class,
+        'rolecheck'  => RoleCheck::class,
     ];
 
     /**

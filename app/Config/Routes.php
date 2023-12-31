@@ -5,12 +5,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// check session with key role
-
-if (session()->get('roleUser') == 'anggota') {
-    $routes->get('/', 'AnggotaController::index');
-} elseif (session()->get('roleUser') == 'admin') {
+$routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->get('/', 'AdminController::index');
-} else {
-    $routes->get('/', 'AuthController::login');
-}
+    $routes->get('/dashboard', 'AdminController::index');
+    $routes->get('/buku', 'AdminController::indexBuku');
+});
+
+$routes->get('/', 'AnggotaController::index');
+$routes->get('/dashboard', 'AnggotaController::index');

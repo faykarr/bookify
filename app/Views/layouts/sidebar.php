@@ -1,4 +1,9 @@
-<?php $auth = service('authentication'); ?>
+<?php
+
+$auth = service('authentication');
+$uri = service('uri');
+
+?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" aria-label="">
     <!-- Brand Logo -->
@@ -35,7 +40,7 @@
                 <?php if ($auth->user()->role == 'admin') : ?>
                 <!-- Start Menu Admins -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="<?= url_to('/') ?>" class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Dashboard
@@ -43,8 +48,8 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item <?= ($uri->getSegment(1) === 'buku') ? 'menu-is-opening menu-open' : '' ?>">
+                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'buku') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Data Master
@@ -69,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= url_to('buku') ?>" class="nav-link <?= ($uri->getSegment(1) === 'buku') ? 'active' : '' ?>">
                                 <div class="ml-4">
                                     <i class="fas fa-book nav-icon"></i>
                                     <p>Master Buku</p>

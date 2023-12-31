@@ -11,4 +11,12 @@ class AdminController extends BaseController
     {
         return view('admin/dashboard');
     }
+
+    public function indexBuku()
+    {
+        $data = [
+            'model' => $this->bukuModel->findAll()
+        ];
+        return view('admin/buku/index', $data);
+    }
 }
