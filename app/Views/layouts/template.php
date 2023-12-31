@@ -1,3 +1,4 @@
+<?php $uri = service('uri') ?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -17,6 +18,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/dist/css/adminlte.min.css">
+
+    <?php if ($uri->getSegment(1) == 'buku'): ?>
+        <!-- DataTables -->
+        <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet"
+            href="<?= base_url() ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <?php endif; ?>
+
     <!-- Favicon -->
     <link rel="icon" href="<?= base_url() ?>/assets/dist/img/bookify-logo.jpg" type="image/x-icon" />
 </head>
@@ -71,8 +81,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url() ?>/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="<?= base_url() ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <?php if ($uri->getSegment(1) == 'buku'): ?>
+        <!-- DataTables  & Plugins -->
+        <script src="<?= base_url() ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/jszip/jszip.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?= base_url() ?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <?php endif; ?>
+
     <!-- AdminLTE App -->
     <script src="<?= base_url() ?>/assets/dist/js/adminlte.min.js"></script>
+
+    <?php if ($uri->getSegment(1) == 'buku'): ?>
+        <!-- Page specific script -->
+        <script>
+            $(function () {
+                $("#master-buku").DataTable({
+                    "responsive": true,
+                    "lengthChange": false,
+                    "autoWidth": false,
+                    "buttons": ["excel", "pdf", "print"]
+                }).buttons().container().appendTo('#master-buku_wrapper .col-md-6:eq(0)');
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
