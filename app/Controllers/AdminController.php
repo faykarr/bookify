@@ -169,4 +169,45 @@ class AdminController extends BaseController
         ];
         return view('admin/anggota/edit', $data);
     }
+
+    public function updateAnggota() {
+        $id_anggota = $this->request->getPost('id_anggota');
+        $id_user = $this->anggotaModel->find($id_anggota)['id_user'];
+        // Check if the user uploaded a new file & unlink the old one & delete the old one
+        if ($this->request->getFile('foto')->getName() != '') {
+            $file = $this->request->getFile('foto');
+            $name = $file->getRandomName();
+            $file->move('uploads/anggota', $name);
+            $data = [
+                'nim' => $this->request->getPost('nim'),
+                'nama' => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'no_telp' => $this->request->getPost('no_telp'),
+                'foto' => $name,
+            ];
+            $oldImage = $this->anggotaModel->find($id_anggota)['foto'];
+            unlink('uploads/anggota/' . $oldImage);
+            $this->anggotaModel->update($id_anggota, $data);
+            $dataUser = [
+                'email' => $this->request->getPost('email'),
+                'username' => strtolower(str_replace(' ', '', $this->request->getPost('nama'))),
+            ];
+            $this->userModel->update($id_user, $dataUser);
+            return redirect()->to('/anggota')->with('success', 'Data Anggota berhasil diubah.');
+        } else {
+            $data = [
+                'nim' => $this->request->getPost('nim'),
+                'nama' => $this->request->getPost('nama'),
+                'alamat' => $this->request->getPost('alamat'),
+                'no_telp' => $this->request->getPost('no_telp'),
+            ];
+            $this->anggotaModel->update($id_anggota, $data);
+            $dataUser = [
+                'email' => $this->request->getPost('email'),
+                'username' => strtolower(str_replace(' ', '', $this->request->getPost('nama'))),
+            ];
+            $this->userModel->update($id_user, $dataUser);
+            return redirect()->to('/anggota')->with('success', 'Data Anggota berhasil diubah.');
+        }
+    }
 }

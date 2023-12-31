@@ -20,6 +20,7 @@ $routes->group('/', ['filter' => 'rolecheck'], function ($routes) {
     $routes->post('anggota/store', 'AdminController::storeAnggota');
     $routes->get('anggota/delete/(:segment)', 'AdminController::deleteAnggota/$1');
     $routes->get('anggota/edit/(:segment)', 'AdminController::editAnggota/$1');
+    $routes->post('anggota/update', 'AdminController::updateAnggota');
 });
 
 $routes->get('/', 'AnggotaController::index');

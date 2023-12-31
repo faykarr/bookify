@@ -22,7 +22,7 @@
 
     <!-- Main content -->
     <section class="content pb-3">
-        <form action="<?= url_to('anggota') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= url_to('anggota/update') ?>" method="post" enctype="multipart/form-data">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-primary">
@@ -51,8 +51,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="nama">Nama Lengkap</label>
-                                        <input type="text" id="nama" name="nama" class="form-control" value="<?= $model['nama'] ?>" disabled readonly>
-                                        <input type="hidden" name="nama" value="<?= $model['nama'] ?>">
+                                        <input type="text" id="nama" name="nama" class="form-control" value="<?= $model['nama'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +59,7 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" class="form-control"
-                                    placeholder="ex: example@gmail.com" value="<?= $user->email ?>" disabled readonly>
+                                    placeholder="ex: example@gmail.com" value="<?= $user->email ?>">
                             </div>
 
                             <div class="row">
@@ -92,7 +91,7 @@
                                         <label for="stok_buku">ID Anggota</label>
                                         <input type="text" id="stok_buku" class="form-control"
                                             value="<?= $model['id_anggota'] ?>" disabled readonly>
-                                        <input type="hidden" name="id_buku" value="<?= $model['id_anggota'] ?>">
+                                        <input type="hidden" name="id_anggota" value="<?= $model['id_anggota'] ?>">
                                     </div>
                                 </div>
                                 <div class="col-md-3 mt-4">
