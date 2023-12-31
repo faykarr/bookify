@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-right">
-                                        <a href="#" class="btn btn-sm <?= ($value['stok_buku'] == 0) ? 'disabled bg-dark' : 'bg-teal' ?>">
+                                        <a href="<?= base_url() ?>katalog/pinjam/<?= $value['id_buku'] ?>" class="btn btn-sm <?= ($value['stok_buku'] == 0) ? 'disabled bg-dark' : 'bg-teal' ?>">
                                             <i class="fas fa-book-reader"></i> <?= ($value['stok_buku'] == 0) ? ' Stok Habis' : ' Pinjam Buku' ?>
                                         </a>
                                         <a href="<?= base_url() ?>katalog/<?= $value['id_buku'] ?>"

@@ -39,4 +39,12 @@ class AnggotaController extends BaseController
         ];
         return view('anggota/katalog/show', $data);
     }
+
+    public function pinjamBuku($id)
+    {
+        $data = [
+            'model' => $this->bukuModel->find($id)
+        ];
+        return view('anggota/katalog/pinjam', $data);
+    }
 }
