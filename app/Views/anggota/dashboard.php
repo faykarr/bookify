@@ -21,72 +21,81 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <!-- Default box -->
-                    <div class="card">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card card-primary card-outline">
                         <div class="card-header">
-                            <h3 class="card-title mt-1">Buku Sedang Dipinjam</h3>
+                            <h5 class="m-0">Selamat Datang!</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Welcome to system,
+                                <?= $anggota['nama'] ?>!
+                            </h6>
 
-                            <div class="card-tools">
-
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-tool" data-card-widget="maximize" title="Maximize">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
+                            <p class="card-text">Sistem ini adalah sistem informasi peminjaman buku perpustakaan
+                                berbasis
+                                web online, ayo berkeliling fiturnya!.</p>
+                            <a href="<?= url_to('katalog') ?>" class="btn btn-primary">Pergi ke Katalog Buku</a>
                         </div>
                     </div>
                 </div>
                 <!-- /.col-md-6 -->
-                <div class="col-lg-6">
+                <div class="col-md-3">
                     <!-- Profile Image -->
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
                                 <img class="profile-user-img img-fluid img-circle"
-                                    src="<?= base_url() ?>assets/dist/img/user4-128x128.jpg" alt="User profile picture">
+                                    src="<?= base_url() ?>uploads/anggota/<?= $anggota['foto'] ?>"
+                                    alt="User profile picture">
                             </div>
 
-                            <h3 class="profile-username text-center">Nina Mcintire</h3>
+                            <h3 class="profile-username text-center">
+                                <?= $anggota['nama'] ?>
+                            </h3>
 
-                            <p class="text-muted text-center">Software Engineer</p>
+                            <p class="text-muted text-center">
+                                <?= $anggota['nim'] ?>
+                            </p>
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Followers</b> <a class="float-right">1,322</a>
+                                    <b>No Telepon</b> <a class="float-right">
+                                        <?= $anggota['no_telp'] ?>
+                                    </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Following</b> <a class="float-right">543</a>
+                                    <b>Alamat</b> <a class="float-right">
+                                        <?= $anggota['alamat'] ?>
+                                    </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Friends</b> <a class="float-right">13,287</a>
+                                    <b>ID Anggota</b> <a class="float-right">
+                                        <?= $anggota['id_anggota'] ?>
+                                    </a>
                                 </li>
                             </ul>
-
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h5 class="m-0">Featured</h5>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-title">Special title treatment</h6>
-
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.col-md-6 -->
+                <div class="col-md-4 col-sm-6 col-12">
+                    <div class="info-box bg-gradient-info">
+                        <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Total Pinjaman Buku</span>
+                            <span class="info-box-number"><?= $total_peminjaman ?> Buku</span>
+                            <span class="progress-description">
+                                <?= $total_peminjaman ?> Transaksi Peminjaman
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->

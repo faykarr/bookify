@@ -31,5 +31,15 @@ class PeminjamanModel extends Model
             ->where('peminjaman.id_anggota', $id)
             ->get()->getResultArray();
     }
+
+    // Get total transaksi peminjaman by id anggota
+    public function getTotalPeminjamanByIdAnggota($id)
+    {
+        return $this->db->table('peminjaman')
+            ->join('master_buku', 'master_buku.id_buku = peminjaman.id_buku')
+            ->join('master_anggota', 'master_anggota.id_anggota = peminjaman.id_anggota')
+            ->where('peminjaman.id_anggota', $id)
+            ->countAllResults();
+    }
     
 }

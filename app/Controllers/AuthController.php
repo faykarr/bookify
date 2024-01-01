@@ -202,6 +202,8 @@ class AuthController extends Controller
         $data = [
             'nim' => $this->request->getPost('nim'),
             'nama' => $this->request->getPost('fullname'),
+            'alamat' => $this->request->getPost('alamat'),
+            'no_telp' => $this->request->getPost('no_telp'),
             'foto' => $name,
             'id_user' => $id_user,
         ];

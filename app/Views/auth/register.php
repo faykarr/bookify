@@ -68,6 +68,26 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="text"
+                            class="form-control <?php if (session('errors.alamat')): ?>is-invalid<?php endif ?>"
+                            placeholder="Alamat" name="alamat" value="<?= old('alamat') ?>">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-home"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text"
+                            class="form-control <?php if (session('errors.no_telp')): ?>is-invalid<?php endif ?>"
+                            placeholder="No Telepon" name="no_telp" value="<?= old('no_telp') ?>">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-phone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text"
                             class="form-control <?php if (session('errors.username')): ?>is-invalid<?php endif ?> "
                             placeholder="Username" name="username" value="<?= old('username') ?>">
                         <div class="input-group-append">
