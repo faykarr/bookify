@@ -127,7 +127,7 @@
                         <div class="row justify-content-between">
                             <div class="col-md-4 col-6">
                                 <div class="mt-3">
-                                    <a href="<?= url_to('katalog') ?>" class="btn <?= ($model['stok_buku'] == 0) ? 'disabled btn-dark' : 'btn-success' ?>"><i
+                                    <a href="<?= base_url() ?>katalog/pinjam/<?= $model['id_buku'] ?>" class="btn <?= ($model['stok_buku'] == 0) ? 'disabled btn-dark' : 'btn-success' ?>"><i
                                             class="fas fa-book-reader mr-1"></i> <?= ($model['stok_buku'] == 0) ? ' Stok Habis' : ' Pinjam Buku' ?></a>
                                 </div>
                             </div>

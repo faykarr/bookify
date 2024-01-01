@@ -237,4 +237,38 @@ class AdminController extends BaseController
         $this->peminjamanModel->update($id, $data);
         return redirect()->to('/peminjaman')->with('success', 'Peminjaman berhasil ditolak.');
     }
+
+    public function setujuiAction($id)
+    {
+        // Check if the status peminjaman is pending
+        $status = $this->peminjamanModel->find($id)['status'];
+        if ($status == 'Pending') {
+            $data = [
+                'status' => 'Disetujui'
+            ];
+            $this->peminjamanModel->update($id, $data);
+            // Update stok buku
+            $id_buku = $this->peminjamanModel->find($id)['id_buku'];
+            $stok_buku = $this->bukuModel->find($id_buku)['stok_buku'];
+            $dataBuku = [
+                'stok_buku' => $stok_buku - 1
+            ];
+            $this->bukuModel->update($id_buku, $dataBuku);
+            return redirect()->to('/peminjaman')->with('success', 'Peminjaman berhasil disetujui.');
+        } elseif ($status == 'Ajukan Kembali') {
+            $data = [
+                'status' => 'Sudah Kembali',
+                'tgl_kembali' => date('Y-m-d')
+            ];
+            $this->peminjamanModel->update($id, $data);
+            // Update stok buku
+            $id_buku = $this->peminjamanModel->find($id)['id_buku'];
+            $stok_buku = $this->bukuModel->find($id_buku)['stok_buku'];
+            $dataBuku = [
+                'stok_buku' => $stok_buku + 1
+            ];
+            $this->bukuModel->update($id_buku, $dataBuku);
+            return redirect()->to('/peminjaman')->with('success', 'Pengembalian berhasil disetujui.');
+        }
+    }
 }

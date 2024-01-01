@@ -97,7 +97,7 @@ class AnggotaController extends BaseController
         }
         $this->peminjamanModel->insert($data);
         session()->setFlashdata('success', 'Pengajuan peminjaman berhasil! Silahkan tunggu konfirmasi dari admin.');
-        return redirect()->to(base_url('katalog'));
+        return redirect()->to(base_url('history'));
     }
 
     public function historyPeminjaman()
@@ -115,5 +115,15 @@ class AnggotaController extends BaseController
         ];
 
         return view('anggota/history/index', $data);
+    }
+
+    public function kembaliPeminjaman($id)
+    {
+        $data = [
+            'status' => 'Ajukan Kembali'
+        ];
+        $this->peminjamanModel->update($id, $data);
+        session()->setFlashdata('success', 'Pengajuan pengembalian buku berhasil! Silahkan tunggu konfirmasi dari admin.');
+        return redirect()->to(base_url('history'));
     }
 }

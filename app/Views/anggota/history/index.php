@@ -117,7 +117,7 @@
                                 <td class="text-center">
                                     <!-- View details book-->
                                     <div class="btn-group">
-                                        <a href="<?= base_url() . 'peminjaman/kembali/' . $value['id_peminjaman'] ?>"
+                                        <a href="<?= base_url() . 'history/kembali/' . $value['id_peminjaman'] ?>"
                                             class="btn btn-warning btn-sm text-white <?= ($value['status'] == 'Pending' || $value['status'] == 'Ditolak' || $value['status'] == 'Sudah Kembali' || $value['status'] == 'Ajukan Kembali') ? 'disabled' : '' ?>">
                                             <i class="fas fa-sync mr-1"></i> Kembalikan Buku
                                         </a>
