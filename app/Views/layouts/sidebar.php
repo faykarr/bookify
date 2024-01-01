@@ -7,6 +7,7 @@ if ($auth->user()->role != 'admin') {
     // Get nama in anggota model using auth
     $anggotaModel = new \App\Models\AnggotaModel();
     $nama = $anggotaModel->where('id_user', $auth->user()->id)->first()['nama'];
+    $gambar = $anggotaModel->where('id_user', $auth->user()->id)->first()['foto'];
 } else {
     $nama = $auth->user()->username;
 }
@@ -25,7 +26,7 @@ if ($auth->user()->role != 'admin') {
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= base_url() ?>/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                <img src="<?= base_url() ?><?= ($auth->user()->role != 'admin') ? 'uploads/anggota/'. $gambar : '/assets/dist/img/user2-160x160.jpg' ?>" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
