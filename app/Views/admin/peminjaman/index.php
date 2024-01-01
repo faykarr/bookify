@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">History Peminjaman</h1>
+                    <h1 class="m-0">Transaksi Peminjaman</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= url_to('dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">History Peminjaman</li>
+                        <li class="breadcrumb-item"><a href="<?= url_to('peminjaman') ?>">Peminjaman</a></li>
+                        <li class="breadcrumb-item active">Transaksi Peminjaman</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title mt-1">History Peminjaman</h3>
+                <h3 class="card-title mt-1">Transaksi Peminjaman</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -41,10 +41,9 @@
                 <table id="master-buku" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>ID Pinjam</th>
+                            <th>Kode Anggota</th>
+                            <th>Nama Peminjam</th>
                             <th>Judul Buku</th>
-                            <th>Pengarang</th>
                             <th>Sampul Buku</th>
                             <th>Tanggal Pinjam</th>
                             <th>Jatuh Tempo</th>
@@ -57,16 +56,13 @@
                         <?php foreach ($model as $key => $value): ?>
                             <tr>
                                 <td>
-                                    <?= $key + 1 ?>
+                                    <?= $value['id_anggota'] ?>
                                 </td>
                                 <td>
-                                    <?= $value['id_peminjaman'] ?>
+                                    <?= $value['nama'] ?>
                                 </td>
                                 <td>
                                     <?= $value['judul_buku'] ?>
-                                </td>
-                                <td>
-                                    <?= $value['pengarang'] ?>
                                 </td>
                                 <td class="text-center">
                                     <img src="<?= base_url('uploads/' . $value['gambar']) ?>" alt="Sampul Buku"
@@ -95,7 +91,7 @@
                                     echo $status;
                                     ?>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <!-- Status with badge -->
                                     <?php
                                     $status = '';
@@ -117,10 +113,16 @@
                                 <td class="text-center">
                                     <!-- View details book-->
                                     <div class="btn-group">
-                                        <a href="<?= base_url() . 'peminjaman/kembali/' . $value['id_peminjaman'] ?>"
-                                            class="btn btn-warning btn-sm text-white <?= ($value['status'] == 'Pending' || $value['status'] == 'Ditolak' || $value['status'] == 'Sudah Kembali' || $value['status'] == 'Ajukan Kembali') ? 'disabled' : '' ?>">
-                                            <i class="fas fa-sync mr-1"></i> Kembalikan Buku
+                                        <a href="<?= base_url() . 'peminjaman/setujui/' . $value['id_peminjaman'] ?>"
+                                            class="btn btn-warning btn-sm text-white <?= ($value['status'] == 'Disetujui' || $value['status'] == 'Ditolak' || $value['status'] == 'Sudah Kembali') ? 'disabled' : '' ?>">
+                                            <i class="fas fa-sync mr-1"></i> Setujui
                                         </a>
+                                        <?php if ($value['status'] == 'Pending'): ?>
+                                            <a href="<?= base_url() ?>peminjaman/tolak/<?= $value['id_peminjaman'] ?>"
+                                                class="btn btn-danger btn-sm">
+                                                <i class="fas fa-times mr-1"></i> Tolak
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </td>
                             </tr>

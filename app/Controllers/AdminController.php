@@ -220,4 +220,12 @@ class AdminController extends BaseController
         ];
         return view('admin/anggota/show', $data);
     }
+
+    public function indexPeminjaman()
+    {
+        $data = [
+            'model' => $this->peminjamanModel->getAllPeminjaman()
+        ];
+        return view('admin/peminjaman/index', $data);
+    }
 }

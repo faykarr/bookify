@@ -24,6 +24,7 @@ $routes->group('/', ['filter' => 'admincheck'], function ($routes) {
     $routes->get('anggota/edit/(:segment)', 'AdminController::editAnggota/$1');
     $routes->post('anggota/update', 'AdminController::updateAnggota');
     $routes->get('anggota/(:segment)', 'AdminController::detailAnggota/$1');
+    $routes->get('peminjaman', 'AdminController::indexPeminjaman');
 });
 
 $routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {

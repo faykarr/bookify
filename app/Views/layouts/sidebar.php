@@ -77,8 +77,8 @@ $uri = service('uri');
                 </li>
 
                 <!-- Transaksi -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item <?= ($uri->getSegment(1) === 'peminjaman') ? 'menu-is-opening menu-open' : '' ?>">
+                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Data Transaksi
@@ -87,7 +87,7 @@ $uri = service('uri');
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= url_to('peminjaman') ?>" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
                                 <div class="ml-4">
                                     <i class="fas fa-address-book nav-icon"></i>
                                     <p>Peminjaman</p>
