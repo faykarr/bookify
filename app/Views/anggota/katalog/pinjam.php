@@ -130,7 +130,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="<?= url_to('buku') ?>" class="btn btn-secondary">Cancel</a>
+                    <a href="<?= url_to('katalog') ?>" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Ajukan Peminjaman Buku" class="btn btn-success float-right">
                 </div>
             </div>

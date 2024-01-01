@@ -51,4 +51,52 @@ class AnggotaController extends BaseController
         ];
         return view('anggota/katalog/pinjam', $data);
     }
+
+    public function storePeminjaman()
+    {
+        $data = [
+            'id_buku' => $this->request->getPost('id_buku'),
+            'id_anggota' => $this->request->getPost('id_anggota'),
+            'tgl_pinjam' => $this->request->getPost('tgl_pinjam'),
+            'jatuh_tempo' => $this->request->getPost('jatuh_tempo'),
+            'status' => 'Pending'
+        ];
+
+        // Check validation request
+        if (
+            !$this->validate([
+                'id_buku' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kode buku harus diisi.'
+                    ]
+                ],
+                'id_anggota' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kode anggota harus diisi.'
+                    ]
+                ],
+                'tgl_pinjam' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal mulai pinjam harus diisi.'
+                    ]
+                ],
+                'jatuh_tempo' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal jatuh tempo harus diisi.'
+                    ]
+                ]
+            ])
+        ) {
+            session()->setFlashdata('error', 'Isi form peminjaman dengan teliti!.');
+            // Back to pinjamBuku page
+            return redirect()->to(base_url('katalog/pinjam/' . $data['id_buku']));
+        }
+        $this->peminjamanModel->insert($data);
+        session()->setFlashdata('success', 'Pengajuan peminjaman berhasil! Silahkan tunggu konfirmasi dari admin.');
+        return redirect()->to(base_url('katalog'));
+    }
 }
