@@ -2,7 +2,14 @@
 
 $auth = service('authentication');
 $uri = service('uri');
-
+// Check if the role is not admin
+if ($auth->user()->role != 'admin') {
+    // Get nama in anggota model using auth
+    $anggotaModel = new \App\Models\AnggotaModel();
+    $nama = $anggotaModel->where('id_user', $auth->user()->id)->first()['nama'];
+} else {
+    $nama = $auth->user()->username;
+}
 ?>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" aria-label="">
@@ -23,7 +30,7 @@ $uri = service('uri');
             </div>
             <div class="info">
                 <a href="<?= base_url() ?>" class="d-block">
-                <?= strtoupper($auth->user()->username) ?></strong>
+                    <?= strtoupper($nama) ?></strong>
                 </a>
             </div>
         </div>
@@ -37,102 +44,112 @@ $uri = service('uri');
                     MAIN NAVIGATION
                 </li>
 
-                <?php if ($auth->user()->role == 'admin') : ?>
-                <!-- Start Menu Admins -->
-                <li class="nav-item">
-                    <a href="<?= url_to('/') ?>" class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-layer-group"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
+                <?php if ($auth->user()->role == 'admin'): ?>
+                    <!-- Start Menu Admins -->
+                    <li class="nav-item">
+                        <a href="<?= url_to('/') ?>"
+                            class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-layer-group"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
 
-                <li class="nav-item <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'menu-is-opening menu-open' : '' ?>">
-                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th-list"></i>
-                        <p>
-                            Data Master
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= url_to('anggota') ?>" class="nav-link <?= ($uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
-                                <div class="ml-4">
-                                    <i class="fas fa-users nav-icon"></i>
-                                    <p>Master Anggota</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= url_to('buku') ?>" class="nav-link <?= ($uri->getSegment(1) === 'buku') ? 'active' : '' ?>">
-                                <div class="ml-4">
-                                    <i class="fas fa-book nav-icon"></i>
-                                    <p>Master Buku</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li
+                        class="nav-item <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'menu-is-opening menu-open' : '' ?>">
+                        <a href="#"
+                            class="nav-link <?= ($uri->getSegment(1) === 'buku' || $uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-th-list"></i>
+                            <p>
+                                Data Master
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= url_to('anggota') ?>"
+                                    class="nav-link <?= ($uri->getSegment(1) === 'anggota') ? 'active' : '' ?>">
+                                    <div class="ml-4">
+                                        <i class="fas fa-users nav-icon"></i>
+                                        <p>Master Anggota</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= url_to('buku') ?>"
+                                    class="nav-link <?= ($uri->getSegment(1) === 'buku') ? 'active' : '' ?>">
+                                    <div class="ml-4">
+                                        <i class="fas fa-book nav-icon"></i>
+                                        <p>Master Buku</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <!-- Transaksi -->
-                <li class="nav-item <?= ($uri->getSegment(1) === 'peminjaman') ? 'menu-is-opening menu-open' : '' ?>">
-                    <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Data Transaksi
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= url_to('peminjaman') ?>" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
-                                <div class="ml-4">
-                                    <i class="fas fa-address-book nav-icon"></i>
-                                    <p>Peminjaman</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- End Menu Admins -->
+                    <!-- Transaksi -->
+                    <li class="nav-item <?= ($uri->getSegment(1) === 'peminjaman') ? 'menu-is-opening menu-open' : '' ?>">
+                        <a href="#" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Data Transaksi
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= url_to('peminjaman') ?>"
+                                    class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
+                                    <div class="ml-4">
+                                        <i class="fas fa-address-book nav-icon"></i>
+                                        <p>Peminjaman</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Menu Admins -->
                 <?php endif; ?>
 
-                <?php if ($auth->user()->role == 'anggota') : ?>
-                <!-- Menu Users -->
-                <li class="nav-item">
-                    <a href="<?= url_to('/') ?>" class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-layer-group"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
+                <?php if ($auth->user()->role == 'anggota'): ?>
+                    <!-- Menu Users -->
+                    <li class="nav-item">
+                        <a href="<?= url_to('/') ?>"
+                            class="nav-link <?= ($uri->getSegment(1) === '' || $uri->getSegment(1) === 'dashboard') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-layer-group"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="<?= url_to('katalog') ?>" class="nav-link <?= ($uri->getSegment(1) === 'katalog') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-swatchbook"></i>
-                        <p>
-                            Katalog Buku
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="<?= url_to('katalog') ?>"
+                            class="nav-link <?= ($uri->getSegment(1) === 'katalog') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-swatchbook"></i>
+                            <p>
+                                Katalog Buku
+                            </p>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="<?= url_to('history') ?>" class="nav-link <?= ($uri->getSegment(1) === 'history') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-history"></i>
-                        <p>
-                            History Peminjaman
-                        </p>
-                    </a>
-                </li>
-                <!-- End Menu Users -->
+                    <li class="nav-item">
+                        <a href="<?= url_to('history') ?>"
+                            class="nav-link <?= ($uri->getSegment(1) === 'history') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-history"></i>
+                            <p>
+                                History Peminjaman
+                            </p>
+                        </a>
+                    </li>
+                    <!-- End Menu Users -->
                 <?php endif; ?>
 
                 <!-- Users Control -->
                 <li class="nav-header">
-                    USER ACCOUNT - <?= strtoupper($auth->user()->role) ?>
+                    USER ACCOUNT -
+                    <?= strtoupper($auth->user()->role) ?>
                 </li>
 
                 <li class="nav-item">
