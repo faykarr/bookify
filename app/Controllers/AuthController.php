@@ -190,12 +190,22 @@ class AuthController extends Controller
 
         // Get the last inserted ID
         $id_user = $users->insertID();
+        
+        // Get the file & randomize the name
+        $file = $this->request->getFile('foto');
+        $name = $file->getRandomName();
+
+        // Move the file to the public/uploads folder
+        $file->move('uploads/anggota', $name);
 
         // Additional data
         $data = [
+            'nim' => $this->request->getPost('nim'),
             'nama' => $this->request->getPost('fullname'),
+            'foto' => $name,
             'id_user' => $id_user,
         ];
+        
         // Save to table master_anggota
         $master_anggota = model(AnggotaModel::class);
         $master_anggota->insert($data);

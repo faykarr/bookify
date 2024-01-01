@@ -74,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Bookify | Sistem Informasi Perpustakaan Online | 22.230.0141
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2023</strong> All rights reserved.
+            <strong>Copyright &copy; 2024</strong> All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->
