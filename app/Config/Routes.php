@@ -31,4 +31,5 @@ $routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {
     $routes->get('katalog/(:segment)', 'AnggotaController::showBuku/$1');
     $routes->get('katalog/pinjam/(:segment)', 'AnggotaController::pinjamBuku/$1');
     $routes->post('katalog/pinjam/store', 'AnggotaController::storePeminjaman');
+    $routes->get('peminjaman', 'AnggotaController::historyPeminjaman');
 });

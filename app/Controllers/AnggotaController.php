@@ -99,4 +99,21 @@ class AnggotaController extends BaseController
         session()->setFlashdata('success', 'Pengajuan peminjaman berhasil! Silahkan tunggu konfirmasi dari admin.');
         return redirect()->to(base_url('katalog'));
     }
+
+    public function historyPeminjaman()
+    {
+        $auth = service('authentication');
+        $id_user = $auth->user()->id;
+        $anggota = $this->anggotaModel->where('id_user', $id_user)->first();
+
+        // Get a subset of records based on the current page and perPage
+        $peminjaman = $this->peminjamanModel->getPeminjamanByIdAnggota($anggota['id_anggota']);
+
+        // Pass data to the view
+        $data = [
+            'model' => $peminjaman
+        ];
+
+        return view('anggota/history/index', $data);
+    }
 }

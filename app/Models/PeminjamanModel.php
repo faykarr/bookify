@@ -21,4 +21,14 @@ class PeminjamanModel extends Model
             ->join('master_anggota', 'master_anggota.id_anggota = peminjaman.id_anggota')
             ->get()->getResultArray();
     }
+
+    // Get Peminjaman by ID anggota with Join
+    public function getPeminjamanByIdAnggota($id)
+    {
+        return $this->db->table('peminjaman')
+            ->join('master_buku', 'master_buku.id_buku = peminjaman.id_buku')
+            ->join('master_anggota', 'master_anggota.id_anggota = peminjaman.id_anggota')
+            ->where('peminjaman.id_anggota', $id)
+            ->get()->getResultArray();
+    }
 }

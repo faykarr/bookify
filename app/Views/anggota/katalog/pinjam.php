@@ -65,11 +65,18 @@
                                         <input type="hidden" name="id_buku" value="<?= $model['id_buku'] ?>">
                                     </div>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-5">
                                     <div class="form-group">
                                         <label for="judul_buku">Judul Buku</label>
                                         <input type="text" id="judul_buku" class="form-control"
                                             value="<?= $model['judul_buku'] ?>" disabled readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="isbn">ISBN Buku</label>
+                                        <input type="text" id="isbn" class="form-control"
+                                            value="<?= $model['isbn'] ?>" disabled readonly>
                                     </div>
                                 </div>
                             </div>
