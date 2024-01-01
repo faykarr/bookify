@@ -42,8 +42,6 @@ class CreateTablePeminjaman extends Migration
             ],
         ]);
         $this->forge->addKey('id_peminjaman', true);
-        $this->forge->addForeignKey('id_buku', 'buku', 'id_buku', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_anggota', 'anggota', 'id_anggota', 'CASCADE', 'CASCADE');
         $this->forge->createTable('peminjaman');
     }
 

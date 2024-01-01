@@ -50,7 +50,7 @@
                             <th>ID Anggota</th>
                             <th>NIM</th>
                             <th>Nama</th>
-                            <th>Meminjam</th>
+                            <th>Transaksi Pinjam</th>
                             <th>Foto</th>
                             <th>Action</th>
                         </tr>
@@ -71,7 +71,12 @@
                                     <?= $value['nama'] ?>
                                 </td>
                                 <td>
-                                    Skip Dulu
+                                    <?php
+                                    $peminjamanModel = new \App\Models\PeminjamanModel();
+                                    // Get total borrowed books from peminjamanmodel
+                                    $total = $peminjamanModel->where('id_anggota', $value['id_anggota'])->countAllResults();
+                                    echo $total;
+                                    ?>
                                 </td>
                                 <td class="text-center">
                                     <img src="<?= base_url('uploads/anggota/' . $value['foto']) ?>" alt="Foto Profil"
