@@ -38,95 +38,87 @@
                         <div class="card-body">
                             <?= csrf_field() ?>
                             <div class="row">
-                                <div class="col-md-7">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="judul_buku">Judul Buku</label>
-                                        <input type="text" id="judul_buku" name="judul_buku" class="form-control"
-                                            autofocus value="<?= $model['judul_buku'] ?>">
+                                        <label for="id_anggota">Kode Peminjam</label>
+                                        <input type="text" id="id_anggota" class="form-control"
+                                            value="<?= $anggota['id_anggota'] ?>" disabled readonly>
+                                        <input type="hidden" name="id_anggota" value="<?= $anggota['id_anggota'] ?>">
                                     </div>
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="isbn">ISBN</label>
-                                        <input type="text" id="isbn" name="isbn" class="form-control"
-                                            value="<?= $model['isbn'] ?>">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="pengarang">Pengarang</label>
-                                <input type="text" id="pengarang" name="pengarang" class="form-control"
-                                    value="<?= $model['pengarang'] ?>">
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label for="penerbit">Penerbit</label>
-                                        <input type="text" id="penerbit" name="penerbit" class="form-control"
-                                            value="<?= $model['penerbit'] ?>">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="tahun_terbit">Tahun Terbit</label>
-                                        <input type="number" min="1900" max="2099" step="1"
-                                            value="<?= $model['tahun_terbit'] ?>" class="form-control"
-                                            name="tahun_terbit" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label for="rak">Posisi Rak</label>
-                                        <input type="text" id="rak" name="rak" class="form-control"
-                                            value="<?= $model['rak'] ?>">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="stok_buku">Stok Buku</label>
-                                        <input type="number" id="stok_buku" name="stok_buku" min="1" max="1000" step="1"
-                                            class="form-control" value="<?= $model['stok_buku'] ?>">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="deskripsi">Deskripsi Buku</label>
-                                <textarea name="deskripsi" id="deskripsi" rows="4"
-                                    class="form-control"><?= $model['deskripsi'] ?></textarea>
-                            </div>
-
-                            <div class="row justify-content-between">
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <label for="gambar">Gambar Buku</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                                <label class="custom-file-label" for="gambar">Choose file</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
-                                        </div>
+                                        <label for="isbn">Nama Peminjam</label>
+                                        <input type="text" id="nama" name="nama" class="form-control"
+                                            value="<?= $anggota['nama'] ?>" disabled readonly>
+                                        <input type="hidden" name="nama" value="<?= $anggota['nama'] ?>">
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="stok_buku">ID Buku</label>
-                                        <input type="text" id="stok_buku" class="form-control"
+                                        <label for="id_buku">Kode Buku</label>
+                                        <input type="text" id="id_buku" class="form-control"
                                             value="<?= $model['id_buku'] ?>" disabled readonly>
                                         <input type="hidden" name="id_buku" value="<?= $model['id_buku'] ?>">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="judul_buku">Judul Buku</label>
+                                        <input type="text" id="judul_buku" class="form-control"
+                                            value="<?= $model['judul_buku'] ?>" disabled readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="penerbit">Penerbit</label>
+                                        <input type="text" id="penerbit" name="penerbit" class="form-control"
+                                            value="<?= $model['penerbit'] ?>" disabled readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="rak">Posisi Rak Buku</label>
+                                        <input type="text" value="<?= $model['rak'] ?>" class="form-control" name="rak"
+                                            disabled readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="tgl_pinjam">Tanggal Mulai Pinjam</label>
+                                        <input type="date" id="tgl_pinjam" name="tgl_pinjam" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="jatuh_tempo">Tanggal Jatuh Tempo</label>
+                                        <input type="date" id="jatuh_tempo" name="jatuh_tempo" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="deskripsi">Deskripsi Buku</label>
+                                        <textarea name="deskripsi" id="deskripsi" rows="10" class="form-control"
+                                            disabled readonly><?= $model['deskripsi'] ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <!-- Preview images from-->
-                                    <div class="float-md-right text-center" id="preview-gambar">
+                                    <div class="text-center" id="preview-gambar">
                                         <img src="<?= base_url() . 'uploads/' . $model['gambar'] ?>" alt="Sampul Buku"
-                                            class="rounded shadow border border-primary" width="128px">
+                                            class="rounded shadow border border-primary" width="224px">
                                     </div>
                                 </div>
                             </div>
@@ -139,39 +131,11 @@
             <div class="row">
                 <div class="col-12">
                     <a href="<?= url_to('buku') ?>" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Update Data Buku" class="btn btn-success float-right">
+                    <input type="submit" value="Ajukan Peminjaman Buku" class="btn btn-success float-right">
                 </div>
             </div>
         </form>
     </section>
     <!-- /.content -->
 </div>
-
-<!-- Script Preview Images -->
-<script>
-    $(document).ready(function () {
-        // Add preview images
-        $("#gambar").change(function () {
-            readURL(this);
-        });
-    });
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            // Create new FileReader
-            var reader = new FileReader();
-
-            // Set function for reader
-            reader.onload = function (e) {
-                // Add preview images
-                $('#preview-gambar').html(
-                    '<img src="' + e.target.result + '" class="rounded shadow border border-primary" style="width: 128px;">'
-                );
-            }
-
-            // Read file
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 <?= $this->endSection() ?>

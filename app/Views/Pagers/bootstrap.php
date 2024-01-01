@@ -7,7 +7,7 @@ $pager->setSurroundCount(2);
 
 ?>
 
-<ul class="pagination float-right">
+<ul class="pagination justify-content-center">
     <?php if ($pager->hasPrevious()): ?>
         <li class="page-item">
             <a href="<?= $pager->getFirst() ?>" aria-label="<?= lang('Pager.first') ?>" class="page-link">

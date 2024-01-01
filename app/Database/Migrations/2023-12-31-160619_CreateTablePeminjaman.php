@@ -38,7 +38,7 @@ class CreateTablePeminjaman extends Migration
             ],
             'status' => [
                 'type' => 'ENUM',
-                'constraint' => ['Pending', 'Disetujui', 'Sudah Kembali']
+                'constraint' => ['Pending', 'Ditolak', 'Disetujui', 'Sudah Kembali'],
             ],
         ]);
         $this->forge->addKey('id_peminjaman', true);

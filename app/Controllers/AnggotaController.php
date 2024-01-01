@@ -20,7 +20,7 @@ class AnggotaController extends BaseController
         $currentPage = $this->request->getVar('page') ?? 1;
 
         // Get a subset of records based on the current page and perPage
-        $buku = $model->paginate(9, 'default', $currentPage);
+        $buku = $model->paginate(6, 'default', $currentPage);
 
         // Pass data to the view
         $data = [
@@ -42,8 +42,12 @@ class AnggotaController extends BaseController
 
     public function pinjamBuku($id)
     {
+        $auth = service('authentication');
+        $id_user = $auth->user()->id;
+        $anggota = $this->anggotaModel->where('id_user', $id_user)->first();
         $data = [
-            'model' => $this->bukuModel->find($id)
+            'model' => $this->bukuModel->find($id),
+            'anggota' => $anggota
         ];
         return view('anggota/katalog/pinjam', $data);
     }
