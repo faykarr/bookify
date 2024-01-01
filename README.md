@@ -11,3 +11,12 @@ This project is a web-based online library information system. This project is m
 4. Copy `.env.example` to `.env`
 5. Run `php spark migrate`
 6. Run `php spark serve`
+
+## Some screenshots of this project
+1. Admin
+<img src="database\admin.png" alt="Admin Screenshots"/> 
+
+<br/>
+
+2. Anggota
+<img src="database\anggota.png" alt="Anggota Screenshots"/> 

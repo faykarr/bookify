@@ -1,0 +1,17 @@
+1. Import Database terlebih dahulu dengan nama database db_bookify
+
+2. Akun Admin
+username = admin
+password = inimimin123
+
+*Disclaimer, akun admin hanya ada 1 tidak bisa ditambahkan lagi, karena yang bertugas sebagai admin hanya petugas perpustakaan
+
+3. Akun Pengguna Default
+username = budisantoso
+password = anggota123
+
+*Disclaimer, akun anggota bisa ditambahkan, tapi ada 2 cara
+	- Menggunakan menu registrasi pada saat mau login, cara ini dapat mengisi password sesuka hati passwordnya bebas
+	- Menggunakan menu Data Master Anggota pada sistem milik admin, cara ini tidak dapat mengisi password sesuka hati,
+	  password default = anggota123
+	  usernamenya = Nama Lengkap yang diisi kecil semua tanpa spasi, contoh (Budi Santoso -> budisantoso)
