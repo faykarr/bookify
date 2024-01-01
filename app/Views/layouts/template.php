@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/dist/css/adminlte.min.css">
 
-    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota'  || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman'): ?>
+    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota'  || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman'|| $uri->getSegment(1) == 'history'): ?>
         <!-- DataTables -->
         <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet"
@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 4 -->
     <script src="<?= base_url() ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota'  || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman'): ?>
+    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota'  || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman'|| $uri->getSegment(1) == 'history'): ?>
         <!-- DataTables  & Plugins -->
         <script src="<?= base_url() ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="<?= base_url() ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="<?= base_url() ?>/assets/dist/js/adminlte.min.js"></script>
 
-    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota' || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman') : ?>
+    <?php if ($uri->getSegment(1) == 'buku' || $uri->getSegment(1) == 'anggota' || $uri->getSegment(1) == 'katalog' || $uri->getSegment(1) == 'peminjaman'|| $uri->getSegment(1) == 'history') : ?>
         <!-- Page specific script -->
         <script>
             $(function () {

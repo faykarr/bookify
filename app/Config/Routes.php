@@ -25,6 +25,7 @@ $routes->group('/', ['filter' => 'admincheck'], function ($routes) {
     $routes->post('anggota/update', 'AdminController::updateAnggota');
     $routes->get('anggota/(:segment)', 'AdminController::detailAnggota/$1');
     $routes->get('peminjaman', 'AdminController::indexPeminjaman');
+    $routes->get('peminjaman/tolak/(:segment)', 'AdminController::tolakPeminjaman/$1');
 });
 
 $routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {
@@ -32,5 +33,5 @@ $routes->group('/', ['filter' => 'anggotacheck'], function ($routes) {
     $routes->get('katalog/(:segment)', 'AnggotaController::showBuku/$1');
     $routes->get('katalog/pinjam/(:segment)', 'AnggotaController::pinjamBuku/$1');
     $routes->post('katalog/pinjam/store', 'AnggotaController::storePeminjaman');
-    $routes->get('peminjaman', 'AnggotaController::historyPeminjaman');
+    $routes->get('history', 'AnggotaController::historyPeminjaman');
 });

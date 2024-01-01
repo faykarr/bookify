@@ -228,4 +228,13 @@ class AdminController extends BaseController
         ];
         return view('admin/peminjaman/index', $data);
     }
+
+    public function tolakPeminjaman($id)
+    {
+        $data = [
+            'status' => 'Ditolak'
+        ];
+        $this->peminjamanModel->update($id, $data);
+        return redirect()->to('/peminjaman')->with('success', 'Peminjaman berhasil ditolak.');
+    }
 }

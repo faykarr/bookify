@@ -120,7 +120,7 @@ $uri = service('uri');
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?= url_to('peminjaman') ?>" class="nav-link <?= ($uri->getSegment(1) === 'peminjaman') ? 'active' : '' ?>">
+                    <a href="<?= url_to('history') ?>" class="nav-link <?= ($uri->getSegment(1) === 'history') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-history"></i>
                         <p>
                             History Peminjaman

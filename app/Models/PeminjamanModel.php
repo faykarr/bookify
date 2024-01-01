@@ -31,4 +31,5 @@ class PeminjamanModel extends Model
             ->where('peminjaman.id_anggota', $id)
             ->get()->getResultArray();
     }
+    
 }
