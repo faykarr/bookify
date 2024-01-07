@@ -9,8 +9,9 @@ This project is a web-based online library information system. This project is m
 2. Open terminal and go to the project directory
 3. Run `composer install`
 4. Copy `.env.example` to `.env`
-5. Run `php spark migrate`
-6. Run `php spark serve`
+5. Make database named `db_bookify`
+6. Run `php spark migrate`
+7. Run `php spark serve`
 
 ## Some screenshots of this project
 1. Admin
